@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Utilities */
+
+.round-edges{
+    border-radius: 20px;
+}
+
+.btn{
+    cursor: pointer;
+    border: 0;
+}
+
+.flex{
+    display: flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.hide{
+    display: none;
+}
+
+.radio{
+    height: 15px;
+    width: 15px;
+    margin: 1vh;
+}
+
+/* Landing Page(Register Page) */
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/hearts.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.register-content{
+    width: 30%;
+    background-color: rgb(255, 255, 255,0.5);
+    padding: 5vh;
+    
+}
+
+.login-title{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 5vh;
+    /* font-family: "Lucida Handwriting"; */
+}
+
+.login-container > label{
+    font-size: 30px;
+    
+}
+
+.login-container > input{
+    width: 100%;
+    height: 30px;
+    margin: 2vh 0 5vh 0;
+    box-shadow: 0 0 4px #6ab1d7;
+  border-color: rgb(254, 66, 143);
+}
+
+.login-container >div{
+    width: 100%;
+}
+
+.login-btn{
+    width: 90px;
+    height: 30px;
+    margin-bottom: 3vh;
+    border: 0;
+    background-color: rgb(254, 66, 143);
+    color: white;
+    font-size: 20px;
+    margin: 2vh 2vh 2vh 0;
+}
+
+.content-btn{
+    text-decoration: underline;
+    color: rgb(254, 66, 143);
+    cursor: pointer;
+    margin-left: 1vh;
+}
+
+/* Signup Content*/
+
+.signup-container > label{
+    font-size: 25px;
+}
+
+.signup-container > input{
+    width: 100%;
+    height: 30px;
+    margin: 2vh 0 3vh 0;
+    box-shadow: 0 0 4px #6ab1d7;
+  border-color: rgb(254, 66, 143);
+}
+
+.signup-popup-btn{
+    text-decoration: underline;
+    color: rgb(254, 66, 143);
+    cursor: pointer;
+    margin-left: 1vh;
+}
+
+.gender > label{
+    font-size: 20px;
+}
+
+.gender > div{
+    align-items: center;
+    justify-content: center;
+}
+
+.interested > label{
+    font-size: 20px;
+}
+
+.interested > div{
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media queries for tablet devices */
+@media only screen and (max-width: 768px) {
+    .register-content {
+      width: 50%;
+      padding: 3vh;
+    }
+    
+    .login-title {
+      font-size: 40px;
+      margin-bottom: 3vh;
+    }
+    
+    .login-container > label {
+      font-size: 25px;
+    }
+    
+    .signup-container > label {
+      font-size: 20px;
+    }
+  }
+  
+  /* Media queries for mobile devices */
+  @media only screen and (max-width: 480px) {
+    .register-content {
+      width: 80%;
+      padding: 2vh;
+    }
+    
+    .login-title {
+      font-size: 30px;
+      margin-bottom: 2vh;
+    }
+    
+    .login-container > label {
+      font-size: 20px;
+    }
+    
+    .signup-container > label {
+      font-size: 15px;
+    }
+    
+    .login-btn {
+      font-size: 18px;
+      width: 70px;
+      height: 25px;
+    }
+    
+    .content-btn {
+      font-size: 14px;
+    }
+    
+    .gender > label,
+    .interested > label {
+      font-size: 16px;
+    }
+  }
