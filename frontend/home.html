@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/home.css">
+</head>
+
+<body>
+
+    <div class="container flex column">
+        <div class="flex header dark-bg">
+            <h1 class="white-txt flex">Heartstrings</h1>
+            <input id="search-bar" class="search-bar round-edges" placeholder="Search here" type="text">
+            
+        </div>
+
+        <div class="page-content container flex row">
+
+            <div class="side-nav flex column light-bg">
+                
+                <button id="home-btn" class="nav-btn btn round-edges medium-bg white-txt" onclick="window.location.href='home.html'">Home</button>
+                <button id="favorite-btn" class="nav-btn btn round-edges medium-bg white-txt" onclick="window.location.href='favorites.html'">Favorites</button>
+                <button id="profile-btn" class="nav-btn btn round-edges medium-bg white-txt" onclick="window.location.href='profile.html'">Profile</button>
+                <button id="messages-btn" class="nav-btn btn round-edges medium-bg white-txt" onclick="window.location.href='messages.html'">Messages</button>
+                <button id="logout-btn" class="nav-btn btn round-edges medium-bg white-txt" onclick="window.location.href='index.html'">Logout</button>
+            </div>
+            <div id="home-container" class="content flex column">
+
+                <h1 class="dark-txt animated-text"><br>Meet Your Future Partner</h1>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    </div>
+    </div>
+   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script src="javascript/index.js"></script>
+    <script>
+        pages.loadFor("home");
+    </script>
+</body>
+
+</html>
