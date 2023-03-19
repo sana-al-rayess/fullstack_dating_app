@@ -47,3 +47,32 @@ const signup = () => {
 
 document.getElementById('signup-btn').addEventListener('click', signup);
 
+const signin = () => {
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-pass').value;
+
+  const data = new FormData();
+  data.append('email', email);
+  data.append('password', password);
+
+  axios.post(pages.base_url + '/login', data)
+    .then((response) => {
+      console.log(response.data);
+      if (response.data.status === "success") {
+        window.location.href = "./home.html";
+      } else {
+        document.getElementById('login-error').innerHTML = "Invalid email or password. Please try again.";
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      if (error.response && error.response.status === 422) {
+        document.getElementById('login-error').innerHTML = "Invalid email or password. Please try again.";
+      } else {
+        document.getElementById('login-error').innerHTML = "An error occurred. Please try again later.";
+      }
+    });
+};
+
+
+document.getElementById('login-btn').addEventListener('click', signin);
