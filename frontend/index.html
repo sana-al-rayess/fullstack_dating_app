@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles/index.css">
+   
 </head>
 <body>
     
@@ -14,12 +15,12 @@
         <div class="register-content round-edges">
             <div id="login-content" class="login-container flex column">    
                 <p class="login-title">Heartstrings</p>
-                <label for="login-username">Username</label>
-                <input id="login-username" class="input round-edges" type="text">
+                <label for="login-email">Email</label>
+                <input id="login-email" class="input round-edges" type="text">
                 <label for="login-pass">Password</label>
                 <input id="login-pass" class="input round-edges"  type="password">
                 <div class="flex">
-                    <p id="login-error"></p>
+                    <p class="error" id="login-error"></p>
                 </div>
                 <button id="login-btn" class="login-btn round-edges">Login</button>
                 <div class="flex row">
@@ -30,15 +31,15 @@
             
             <div id="signup-content" class="signup-container flex column hide">    
                 <p class="login-title">Heartstrings</p>
-                <div><p id="signup-error"></p></div>
-                <label for="signup-fullname">Username</label>
-                <input id="signup-fullname" class="input round-edges" type="text">
-                <label for="signup-username">Email</label>
-                <input id="signup-username" class=" input round-edges" type="text">
-                <label for="signup-pass">Password</label>
-                <input id="signup-pass" class="input round-edges" type="password">
+                <div><p class="error" id="signup-error"></p></div>
+                <label for="name">Username</label>
+                <input id="name" class="input round-edges" type="text">
+                <label for="email">Email</label>
+                <input id="email" class=" input round-edges" type="text">
+                <label for="password">Password</label>
+                <input id="password" class="input round-edges" type="password">
                 
-                <div class="gender flex row">
+                <!-- <div class="gender flex row">
                     <label>Gender:</label>
                     <div class="flex row grow">
                         <input type="radio" name="gender" value="male" class="radio">
@@ -48,7 +49,7 @@
                         <input type="radio" name="gender" value="female" class="radio">
                         <label for="gender">Female</label>
                     </div>
-                </div>
+                </div> -->
                 
                 <button id="signup-btn" class="login-btn round-edges">Sign Up</button>
                 <div class="flex row">
@@ -59,7 +60,7 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.js"></script>
     <script src="scripts/index.js"></script>
 </body>
 </html>

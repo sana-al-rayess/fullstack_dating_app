@@ -170,6 +170,10 @@ body{
     font-size: larger;
       
 }
+#photo-preview img {
+    max-width: 100px;
+    max-height: 100px;
+  }
 
 .nav-btn{
     height: 40px;
@@ -178,7 +182,7 @@ body{
 }
 .submit-btn{
     height: 40px;
-    width: 15vw;
+    width: 10vw;
     font-size: 25px;
     margin: 4vh 4vh;
        
@@ -208,6 +212,32 @@ body{
     align-items: center;
 }
 
+
+.file-input-container {
+    position: relative;
+  }
+  
+  .file-input-container input[type="file"] {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  
+  .custom-file-input {
+    display: inline-block;
+    background-color: #F25E86;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .custom-file-input:hover {
+    background-color: #D92B6B;
+  }
 
 
 

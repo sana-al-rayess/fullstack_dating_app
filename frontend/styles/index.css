@@ -100,7 +100,9 @@
     cursor: pointer;
     margin-left: 1vh;
 }
-
+.error{
+  color: rgb(254, 66, 143)
+}
 /* Signup Content*/
 
 .signup-container > label{

@@ -37,7 +37,8 @@
                 <div class="edit-prof round-edges">
                     <form>
                         <label for="gender">Gender:</label>
-                        <select class=" round-edges input-border display-block" id="gender" name="gender" required>
+                        <select class="round-edges input-border display-block" id="gender" name="gender" required>
+                            <option>Select</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
@@ -47,14 +48,37 @@
                             required>
                         <br>
                         <label for="location">Location:</label>
-                        <input class=" round-edges input-border display-block" type="text" id="location" name="location"
+                        <input class="round-edges input-border display-block" type="text" id="location" name="location"
                             required>
                         <br>
                         <label for="bio">Bio:</label>
                         <textarea class="display-block round-edges input-border" id="bio" name="bio" rows="4" cols="50"
                             maxlength="200" required></textarea>
-                    
-                        <input class="submit-btn btn round-edges medium-bg white-txt " type="submit" value="Submit">
+                        <input id="add-photos-btn" class="submit-btn btn round-edges medium-bg white-txt " type="button"
+                            value="Add Photos">
+                        <input id="submit-prof-btn" class="submit-btn btn round-edges medium-bg white-txt "
+                            type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div id="photo-container" class="content flex column hide">
+                <h1 class="dark-txt txt-indent"><br>Edit Profile</h1>
+                <div class="edit-prof round-edges">
+                    <form>
+                        
+                        <div class="file-input-container">
+                            <label for="gallery">Gallery:</label>
+                            <input type="file" id="gallery" name="gallery" multiple>
+                            <label for="gallery" class="custom-file-input round-edges">Choose Files</label>
+                          </div>
+                          
+                        <div id="photo-preview"></div>
+
+                        <input id="back-btn" class="submit-btn btn round-edges medium-bg white-txt " type="button"
+                            value="Back">
+                        <input id="submit-photo-btn" class="submit-btn btn round-edges medium-bg white-txt "
+                            type="submit" value="Submit">
                     </form>
                 </div>
             </div>
@@ -62,7 +86,8 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
-    <script src="javascript/index.js"></script>
+    <script src="scripts/home.js"></script>
+
 
 </body>
 
