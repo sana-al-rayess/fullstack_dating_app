@@ -10,6 +10,9 @@ body{
     box-sizing: border-box;
     
 }
+.display-block{
+    display: block;
+}
 
 .round-edges{
     border-radius: 20px;
@@ -79,6 +82,18 @@ body{
 .dark-txt{
     color: rgb(254, 66, 143);
 }
+
+.input-border{
+    border: 2px solid #F25E86;
+    padding: 0.5vh;
+    margin: 1vh;
+    text-indent: 5px;
+}
+.input-border:focus {
+    border-color: #D92B6B;
+    border-width: 3px;
+    outline: none;
+}
 .animated-text {
     overflow: hidden;
     border-right: .15em #D92B6B; /* Add a blinking cursor effect */
@@ -137,9 +152,6 @@ body{
     font-size: 20px;
 }
 
-/* Page Content Section */
-
-/* Side Nav Elements */
 
 .side-nav{
     width: 15vw;
@@ -147,11 +159,29 @@ body{
     padding-top: 5vh;
     background-color: rgba(255, 255, 255, 0.7);
 }
+.edit-prof{
+    margin: 8vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 35vw;
+    height: 65vh;
+    padding: 5vh;
+    text-align: left;
+    color: #D92B6B;
+    font-size: larger;
+      
+}
 
 .nav-btn{
     height: 40px;
     font-size: 25px;
     margin: 4vh 4vh;
+}
+.submit-btn{
+    height: 40px;
+    width: 15vw;
+    font-size: 25px;
+    margin: 4vh 4vh;
+       
 }
 
 .search-bar{
@@ -165,12 +195,11 @@ body{
     
 }
 
-/* Content Section */
+
 .page-content{
     justify-content: center;
     align-items: flex-start;
-    /* background-color: rgb(254, 66, 143); */
-    /* background-image: url(../images/heart2.jpg); */
+  
 }
 
 .content{
@@ -259,4 +288,32 @@ body{
       width: 80vw;
     }
   }
+  
+  
+@media only screen and (max-width: 768px) {
+    /* For screens smaller than 768px */
+    .edit-prof {
+      margin: 2vh;
+      width: 80vw;
+      height: 80vh;
+      padding: 2vh;
+      font-size: medium;
+   }
+    
+    .input-border {
+      margin: 1vh;
+    }
+    
+    .submit-btn {
+      height: 30px;
+      width: 40vw;
+      font-size: 20px;
+      margin: 3vh 3vh;
+    }
+  }
+ 
+  
+  
+  
+  
   
