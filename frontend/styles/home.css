@@ -1,0 +1,260 @@
+body{
+    background-image: url(../images/heart2.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+*{
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    
+}
+
+.round-edges{
+    border-radius: 20px;
+}
+
+.btn{
+    cursor: pointer;
+    border: 0;
+    padding: 0 2vh;
+    transition: all 0.2s ease-in-out;
+    }
+
+.btn:hover {
+  transform: scale(1.1);
+  background-color: #D92B6B;
+
+}
+
+.flex{
+    display: flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.hide{
+    display: none;
+}
+
+.radio{
+    height: 15px;
+    width: 15px;
+    margin: 1vh;
+}
+
+.dark-bg{
+    background-color: #D92B6B;
+}
+
+.medium-bg{
+    background-color: #F25E86;
+}
+
+.light-bg{
+    background-color: rgb(255,233,233);
+}
+
+.white-bg{
+    background-color: white;
+}
+
+.dark-txt{
+    color: rgb(254, 66, 143);
+}
+.animated-text {
+    overflow: hidden;
+    border-right: .15em #D92B6B; /* Add a blinking cursor effect */
+    white-space: nowrap; /* Keeps text on single line */
+    margin: 0 auto; /* Centers the element */
+    letter-spacing: .10em; /* Adjust as needed */
+    animation:
+      typing 4.5s steps(40, end) infinite,
+      blink-caret .75s step-end infinite;
+      
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 40% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #D92B6B }
+  }
+    
+
+.medium-txt{
+    background-color: rgb(255,146,160);
+}
+
+.light-txt{
+    color: rgb(255,233,233);
+}
+
+.white-txt{
+    color: white;
+}
+
+.container{
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+.header{
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vh;
+    
+    
+}
+
+.header-btn{
+    height: 40px;
+    font-size: 20px;
+}
+
+/* Page Content Section */
+
+/* Side Nav Elements */
+
+.side-nav{
+    width: 15vw;
+    height: 90vh;
+    padding-top: 5vh;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-btn{
+    height: 40px;
+    font-size: 25px;
+    margin: 4vh 4vh;
+}
+
+.search-bar{
+    height: 30px;
+    width: 300px;
+    margin: 0 2vh 2vh 2vh;
+    font-size: 20px;
+    border: 0;
+    text-indent: 10px;
+    margin-top: 20px;
+    
+}
+
+/* Content Section */
+.page-content{
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color: rgb(254, 66, 143); */
+    /* background-image: url(../images/heart2.jpg); */
+}
+
+.content{
+    width: 85vw;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+    .side-nav {
+      width: 100%;
+      height: auto;
+      padding: 5vh 0;
+    }
+  
+    .nav-btn {
+      margin: 4vh 2vh;
+    }
+  
+    .search-bar {
+      width: 90%;
+    }
+  
+    .page-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .content {
+      width: 100%;
+    }
+  }
+  
+  /* Medium screens */
+  @media only screen and (min-width: 601px) and (max-width: 900px) {
+    .side-nav {
+      width: 30vw;
+      height: 90vh;
+      padding-top: 5vh;
+    }
+  
+    .nav-btn {
+      margin: 2vh;
+    }
+  
+    .search-bar {
+      width: 80%;
+    }
+  
+    .page-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .content {
+      width: 70vw;
+    }
+  }
+  
+  /* Large screens */
+  @media only screen and (min-width: 901px) {
+    .side-nav {
+      width: 20vw;
+      height: 90vh;
+      padding-top: 5vh;
+    }
+  
+    .nav-btn {
+      margin: 4vh 4vh;
+    }
+  
+    .search-bar {
+      width: 300px;
+    }
+  
+    .page-content {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  
+    .content {
+      width: 80vw;
+    }
+  }
+  
