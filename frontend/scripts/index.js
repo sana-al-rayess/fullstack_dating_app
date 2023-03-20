@@ -1,3 +1,4 @@
+
 const login_container = document.getElementById("login-content")
 const signup_container = document.getElementById("signup-content")
 const login_content_btn = document.getElementById("login-content-button");
@@ -28,26 +29,23 @@ const signup = () => {
   data.append('email', email);
   data.append('password', password);
 
-  axios.post(pages.base_url + '/register', data)
-    .then((result) => {
-      console.log(result);
-      if (result.data.status === "success") {
-        window.location.href = "./home.html"
-        console.log("Signed up successfully!");
-
+  axios.post(pages.base_url + '/login', data)
+    .then((response) => {
+      console.log(response.data);
+      if (response.data.status === "success") {
+        const jwtToken = response.data.token; // extract the JWT token from the response data
+        getUserName(jwtToken); // call getUserName function and pass the token as an argument
+        window.location.href = "./home.html";
       } else {
-        document.getElementById('signup-error').innerHTML = "An error occurred. Please try again later.";
-        console.log("Unable to sign up");
+        alert("Make sure login information is correct");
       }
     })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+}
+
 
 document.getElementById('signup-btn').addEventListener('click', signup);
 
-const signin = () => {
+function signin() {
   const email = document.getElementById('login-email').value;
   const password = document.getElementById('login-pass').value;
 
@@ -58,10 +56,15 @@ const signin = () => {
   axios.post(pages.base_url + '/login', data)
     .then((response) => {
       console.log(response.data);
+      element = response.data.token[0];
+                localStorage.setItem("id", element.id);
+                localStorage.setItem("name", element.name);
+                localStorage.setItem("email", element.email);
       if (response.data.status === "success") {
+        getUserName(response.data.token); // call getUserName function and pass the token as an argument
         window.location.href = "./home.html";
       } else {
-        document.getElementById('login-error').innerHTML = "Invalid email or password. Please try again.";
+        alert("Make sure login information is correct");
       }
     })
     .catch((error) => {
@@ -72,7 +75,30 @@ const signin = () => {
         document.getElementById('login-error').innerHTML = "An error occurred. Please try again later.";
       }
     });
-};
-
+}
 
 document.getElementById('login-btn').addEventListener('click', signin);
+
+
+function getUserName(jwtToken) {
+  axios.get(pages.base_url + '/user', {
+    headers: {
+      'Authorization': `Bearer ${jwtToken}`
+    }
+  })
+    .then((response) => {
+      console.log(response)
+      const name = response.data.name; // extract the user's name from the response data
+      // callback(name); // call the callback function and pass the user's name as an argument
+      const welcomeMessage = `Welcome, ${name}!`;
+      document.getElementById('welcome-message').innerHTML = welcomeMessage;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+// function displayWelcomeMessage(name) {
+//   const welcomeMessage = `Welcome, ${name}!`;
+//   document.getElementById('welcome-message').innerHTML = welcomeMessage;
+// }

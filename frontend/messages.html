@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favorites</title>
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/messages.css">
 </head>
 
 <body>
@@ -15,30 +15,71 @@
         <div class="flex header dark-bg">
             <h1 class="white-txt flex">Heartstrings</h1>
             <input id="search-bar" class="search-bar round-edges" placeholder="Search here" type="text">
-        
+
         </div>
 
         <div class="page-content container flex row">
 
             <div class="side-nav flex column light-bg">
-                <button id="home-btn" class="nav-btn btn round-edges medium-bg white-txt" onclick="window.location.href='home.html'">Home</button>
-                <button id="favorite-btn" class="nav-btn btn round-edges medium-bg white-txt" onclick="window.location.href='favorites.html'">Favorites</button>
-                <button id="profile-btn" class="nav-btn btn round-edges medium-bg white-txt" onclick="window.location.href='profile.html'">Profile</button>
-                <button id="messages-btn" class="nav-btn btn round-edges medium-bg white-txt" onclick="window.location.href='messages.html'">Messages</button>
-                <button id="logout-btn" class="nav-btn btn round-edges medium-bg white-txt" onclick="window.location.href='index.html'">Logout</button>
+                <button id="home-btn" class="nav-btn btn round-edges medium-bg white-txt"
+                    onclick="window.location.href='home.html'">Home</button>
+                <button id="favorite-btn" class="nav-btn btn round-edges medium-bg white-txt"
+                    onclick="window.location.href='favorites.html'">Favorites</button>
+                <button id="profile-btn" class="nav-btn btn round-edges medium-bg white-txt"
+                    onclick="window.location.href='profile.html'">Profile</button>
+                <button id="messages-btn" class="nav-btn btn round-edges medium-bg white-txt"
+                    onclick="window.location.href='messages.html'">Messages</button>
+                <button id="logout-btn" class="nav-btn btn round-edges medium-bg white-txt"
+                    onclick="window.location.href='index.html'">Logout</button>
             </div>
-            <div id="home-container" class="content flex column">
 
-                <h1 class="dark-txt txt-indent"><br>Messages</h1>
+
+            <div id="home-container" class="content flex column">
+                <h1 class="dark-txt txt-indent"><br>Messages</h1><br>
+                <div class="inbox-outbox-div">
+                    <button id="inbox-btn" class="btn round-edges medium-bg white-txt">Inbox</button>
+                    <button id="outbox-btn" class="btn round-edges medium-bg white-txt">Outbox</button>
+                </div>
+
+                <div id="inbox-chat" class="chat-container flex column round-edges">
+                    <div class="chat-header flex dark-bg round-top-edges">
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                        <p id="profile-name" class="profile-name white-txt">Profile Name</p>
+                    </div>
+                    <div id="chat-content" class="chat-content flex column light-bg round-edges">
+
+                    </div>
+                    <div class="send-bar flex row dark-bg round-bottom-edges">
+                        <input id="send-bar" type="text" class="round-edges">
+                        <button id="send-button" class="btn round-edges medium-bg white-txt">Send</button>
+                    </div>
+                </div>
+
+                <div id="outbox-chat" class="chat-container flex column round-edges hide">
+                    <div class="chat-header flex dark-bg round-top-edges">
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                        <p id="profile-name" class="profile-name white-txt">Outbox</p>
+                    </div>
+                    <div id="chat-content" class="chat-content flex column light-bg round-edges">
+
+                    </div>
+                    <button id="back-button" class="nav-btn btn round-edges medium-bg white-txt">Back to inbox</button>
+                </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
     </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
-    <script src="javascript/index.js"></script>
-   
+    <script src="./scripts/messages.js"></script>
+
 </body>
 
 </html>
