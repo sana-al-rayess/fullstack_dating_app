@@ -33,3 +33,21 @@ galleryInput.addEventListener("change", function() {
     photoPreview.appendChild(img);
   }
 });
+
+function getUserName(jwtToken) {
+  axios.get(pages.base_url + '/user', {
+    headers: {
+      'Authorization': `Bearer ${jwtToken}`
+    }
+  })
+    .then((response) => {
+      console.log(response)
+      const name = response.data.name; // extract the user's name from the response data
+      // callback(name); // call the callback function and pass the user's name as an argument
+      const welcomeMessage = `Welcome, ${name}!`;
+      document.getElementById('welcome-message').innerHTML = welcomeMessage;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}

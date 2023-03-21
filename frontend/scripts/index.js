@@ -18,10 +18,29 @@ const pages = {};
 
 pages.base_url = "http://127.0.0.1:8000/api";
 
+const setToken = () => {
+  const token = localStorage.getItem('token');
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+}
+pages.getAPI = async (api_url) => {
+  try {
+    return await axios(api_url);
+  } catch (error) {
+    console.log("Error from GET API");
+  }
+}
+
 const signup = () => {
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
+
+  // Check for missing fields
+  if (name === '' || email === '' || password === '') {
+    const errorMsg = document.getElementById('signup-error');
+    errorMsg.innerText = 'Please fill in all fields.';
+    return;
+  }
 
   const data = new FormData();
 
@@ -29,15 +48,19 @@ const signup = () => {
   data.append('email', email);
   data.append('password', password);
 
-  axios.post(pages.base_url + '/login', data)
+  axios.post(pages.base_url + '/register', data)
     .then((response) => {
-      console.log(response.data);
+      console.log(response);
       if (response.data.status === "success") {
-        const jwtToken = response.data.token; // extract the JWT token from the response data
-        getUserName(jwtToken); // call getUserName function and pass the token as an argument
-        window.location.href = "./home.html";
+        window.location.href = "./home.html"
+        console.log("signed up successfully!");
+        localStorage.setItem("name", response.data.user.name);
+        localStorage.setItem("user_id", response.data.user.id);
+        localStorage.setItem("email", response.data.user.email);
+        localStorage.setItem("token", response.data.Authorization.token);
+     
       } else {
-        alert("Make sure login information is correct");
+        console.log("unable to sign up");
       }
     })
 }
@@ -45,25 +68,36 @@ const signup = () => {
 
 document.getElementById('signup-btn').addEventListener('click', signup);
 
+document.getElementById('login-btn').addEventListener('click', signin);
+
+
+
 function signin() {
   const email = document.getElementById('login-email').value;
   const password = document.getElementById('login-pass').value;
+  if (email === '' || password === '') {
+    const errorMsg = document.getElementById('login-error');
+    errorMsg.innerText = 'Please fill in all fields.';
+    return;
+  }
 
   const data = new FormData();
   data.append('email', email);
   data.append('password', password);
 
   axios.post(pages.base_url + '/login', data)
-    .then((response) => {
+    .then(function (response) {
       console.log(response.data);
-      element = response.data.token[0];
-                localStorage.setItem("id", element.id);
-                localStorage.setItem("name", element.name);
-                localStorage.setItem("email", element.email);
       if (response.data.status === "success") {
-        getUserName(response.data.token); // call getUserName function and pass the token as an argument
-        window.location.href = "./home.html";
-      } else {
+        console.log("logged in successfully!");
+        window.location.href = "./home.html"
+        localStorage.setItem("user_id", response.data.user.id);
+        localStorage.setItem("email", response.data.user.email);
+        localStorage.setItem("token", response.data.Authorization.token); // save the token in local storage
+      }
+      // getUserName(response.data.token);
+      // window.location.href = "./home.html";
+      else {
         alert("Make sure login information is correct");
       }
     })
@@ -76,8 +110,6 @@ function signin() {
       }
     });
 }
-
-document.getElementById('login-btn').addEventListener('click', signin);
 
 
 function getUserName(jwtToken) {
