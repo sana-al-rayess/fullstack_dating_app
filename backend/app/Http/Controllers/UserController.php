@@ -164,24 +164,18 @@ public function upload(Request $request)
     ], 201);
 }
 
-public function index(Request $request)
+
+    public function oppositeGender(Request $request)
     {
-        // Get the current user's gender
-        $currentUserGender = $request->user()->profile->gender;
-
-        // Determine the opposite gender
-        $oppositeGender = $currentUserGender === 'male' ? 'female' : 'male';
-
-        // Get all users of the opposite gender
+        $user = $request->user();
+        $oppositeGender = $user->profile->gender == 'male' ? 'female' : 'male';
         $users = User::whereHas('profile', function ($query) use ($oppositeGender) {
             $query->where('gender', $oppositeGender);
         })->get();
-
         return response()->json($users);
     }
+
 }
    
-}
-
 
 

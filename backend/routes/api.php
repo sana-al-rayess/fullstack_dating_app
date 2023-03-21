@@ -42,6 +42,11 @@ Route::get('users/filter', [UserController::class, 'filter']);
 
 Route::middleware('auth:api')->post('photos', [UserController::class, 'upload']);
 
-Route::get('/users/opposite-gender', 'UserController@index');
-Route::middleware('auth:api')->get('/users/opposite-gender', 'UserController@index');
+
+Route::middleware('auth:api')->get('/opposite-gender', 'UserController@oppositeGender');
+
+Route::post('/users/{user_id}/{type}', 'UserController@favoriteOrBlock');
+
+
+
 
